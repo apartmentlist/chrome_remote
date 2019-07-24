@@ -3,6 +3,9 @@ require "chrome_remote"
 require "byebug"
 require "webmock/rspec"
 
+puts "Webmock Allow External Connections"
+WebMock.allow_net_connect!
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
