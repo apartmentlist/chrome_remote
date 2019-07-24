@@ -6,7 +6,7 @@ require "net/http"
 module ChromeRemote
   class << self
     DEFAULT_OPTIONS = {
-      host: "localhost",
+      host: "127.0.0.1",
       port: 9222
     }
 
@@ -19,7 +19,7 @@ module ChromeRemote
     private
 
     def get_ws_url(options)
-      response = ::Net::HTTP.get(options[:host], "/json", options[:port])
+      response = Net::HTTP.get(options[:host], "/json", options[:port])
       # TODO handle unsuccesful request
       response = JSON.parse(response)
 
