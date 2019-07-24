@@ -22,7 +22,7 @@ module ChromeRemote
       puts "************"
       puts Net::HTTP.method(:get).source_location
       puts "************"
-      WebMock.allow_net_connect!
+      WebMock.disable!
       response = Net::HTTP.get(options[:host], "/json", options[:port])
       # TODO handle unsuccesful request
       response = JSON.parse(response)
