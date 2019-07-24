@@ -19,6 +19,9 @@ module ChromeRemote
     private
 
     def get_ws_url(options)
+      puts "************"
+      puts Net::HTTP.method(:get).source_location
+      puts "************"
       response = Net::HTTP.get(options[:host], "/json", options[:port])
       # TODO handle unsuccesful request
       response = JSON.parse(response)
